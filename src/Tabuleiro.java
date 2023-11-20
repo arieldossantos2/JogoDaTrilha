@@ -20,38 +20,31 @@ public class Tabuleiro extends JPanel {
     public Tabuleiro(Jogo jogo) {
         setLayout(new GridLayout(5, 10));
 
-        // Inicializa as listas
         casasNumeradas = new ArrayList<>();
         jogadoresLabels = new ArrayList<>();
 
         
-        // Adiciona 50 casas numeradas ao tabuleiro
         for (int i = 1; i <= getNumeroDeCasas(); i++) {
             JPanel panelCasa = new JPanel(new FlowLayout());
             JLabel labelCasa = new JLabel(Integer.toString(i), SwingConstants.CENTER);
-            // labelCasa.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             panelCasa.add(labelCasa);
-            casasNumeradas.add(labelCasa);  // Adiciona a lista de casas numeradas
+            casasNumeradas.add(labelCasa); 
             add(panelCasa);
         }
 
-        // Adiciona jogadores em suas posições iniciais
         for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {
             JLabel labelJogador = new JLabel(new ImageIcon("lib/imagem" + (i + 1) + ".png"), SwingConstants.CENTER);
             labelJogador.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            jogadoresLabels.add(labelJogador);  // Adiciona a lista de jogadores
+            jogadoresLabels.add(labelJogador); 
         }
 
 
-        // Posiciona os jogadores nas casas iniciais
         moverJogadoresParaPosicoesIniciais();
 
-        // Adiciona jogadores ao tabuleiro
         for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {
             add(jogadoresLabels.get(i));
         }
 
-        // Destaca as casas com carta extra em amarelo
         destacarCasasCartasExtras(jogo.getCasasCartasExtras());
     }
 
@@ -60,11 +53,9 @@ public class Tabuleiro extends JPanel {
     }
 
     public void moverJogador(int jogadorIndex, int posicaoAntiga, int posicaoNova) {
-        // Remova o jogador da posição antiga
         JPanel panelCasaAntiga = (JPanel) getComponent(posicaoAntiga - 1);
         panelCasaAntiga.remove(jogadoresLabels.get(jogadorIndex));
-    
-        // Adicione o jogador na nova posição
+
         JPanel panelCasaNova = (JPanel) getComponent(posicaoNova - 1);
         panelCasaNova.add(jogadoresLabels.get(jogadorIndex));
     
@@ -73,8 +64,7 @@ public class Tabuleiro extends JPanel {
     }
     
     private void moverJogadoresParaPosicoesIniciais() {
-        // Posiciona os jogadores nas casas iniciais
-        int[] posicoesIniciais = {1, 1, 1, 1, 1, 1};  // Todos começam na primeira casa
+        int[] posicoesIniciais = {1, 1, 1, 1, 1, 1}; 
         for (int i = 0; i < jogadoresLabels.size(); i++) {
             JPanel panelCasa = (JPanel) getComponent(posicoesIniciais[i] - 1);
             panelCasa.add(jogadoresLabels.get(i));
