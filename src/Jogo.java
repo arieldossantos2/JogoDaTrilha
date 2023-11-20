@@ -16,28 +16,22 @@ public class Jogo {
         cartasRetiradas = new ArrayList<>();
         casasCartasExtras = new ArrayList<>();
 
-        // Adicione jogadores ao jogo
         for (int i = 0; i < quantidadeJogadores; i++) {
             jogadores.add(new Jogador());
         }
 
-        // Inicialize as cartas
         inicializarCartas();
 
-        // Defina casas aleatórias para cartas extras
-        definirCasasCartasExtras(8);  // Altere o número conforme necessário
+        definirCasasCartasExtras(8); 
 
-        // Inicializa a vez do jogador como o primeiro
         vezDoJogador = 0;
     }
 
     private void inicializarCartas() {
-        // Adicione as cartas ao jogo (por exemplo, de -3 a 3)
         for (int i = -2; i <= 3; i++) {
             cartasRetiradas.add(i);
         }
 
-        // Embaralhe as cartas
         embaralharCartas();
     }
 
@@ -46,25 +40,22 @@ public class Jogo {
     }
 
     private void definirCasasCartasExtras(int quantidadeCasas) {
-        // Adicione casas aleatórias às casas de cartas extras
         Random random = new Random();
         for (int i = 1; i < quantidadeCasas; i++) {
-            int casa = random.nextInt(50) + 1;  // 2 a quantidadeCasas
+            int casa = random.nextInt(50) + 1;
             casasCartasExtras.add(casa);
         }
     }
 
     public void realizarJogada(int jogadorIndex, int passos) {
         Jogador jogador = jogadores.get(jogadorIndex);
-     //   int posicaoAntiga = jogador.getPosicaoAntiga();
         jogador.avancar(passos);
         int posicaoNova = jogador.getPosicaoAtual();
     
-        // Verifique se o jogador caiu em uma casa com carta extra
         if (casasCartasExtras.contains(posicaoNova)) {
             int carta = tirarCartaExtra();
             JOptionPane.showMessageDialog(null, "Carta Extra: " + carta, "Você caiu em uma casa bônus!", JOptionPane.INFORMATION_MESSAGE);
-            jogador.avancar(carta);  // Mova o jogador de acordo com a carta extra
+            jogador.avancar(carta); 
         }
     }
     
