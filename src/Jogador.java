@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Jogador {
     private int posicaoAtual;
@@ -21,6 +22,8 @@ public class Jogador {
         posicaoAtual += passos;
         if (posicaoAtual < 1) {
             posicaoAtual = 1;
+        } else if (posicaoAtual >= Tabuleiro.getNumeroDeCasas()){
+            JOptionPane.showMessageDialog(null, "Parabéns, você venceu!", "Temos um vencedor!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

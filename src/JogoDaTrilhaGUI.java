@@ -21,7 +21,7 @@ public class JogoDaTrilhaGUI {
 
             // Adiciona botão de jogar dados ao painel principal
             JButton btnJogarDados = new JButton("Jogar Dados");
-            JLabel lblVezDoJogador = new JLabel("Vez do Jogador " + (jogo.getVezDoJogador()));
+            JLabel lblVezDoJogador = new JLabel("Vez do Jogador " + (jogo.getVezDoJogador() + 1));
 
             // Adiciona botão de jogar dados ao painel principal
             JPanel panelPrincipal = new JPanel(new BorderLayout());
@@ -42,20 +42,17 @@ public class JogoDaTrilhaGUI {
                     int jogadorIndex = jogo.getVezDoJogador();
                     btnJogarDados.setEnabled(false);
                     int dado = jogo.lancarDado();
-                    JOptionPane.showMessageDialog(null, "Dado = " + dado, "Jogada", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Dado = " + dado, "Dados", JOptionPane.INFORMATION_MESSAGE);
                     jogo.realizarJogada(jogadorIndex, dado);
                     atualizarTabuleiro(tabuleiro, jogo);
+                    JOptionPane.showMessageDialog(null, "Posição atual:" + jogo.getPosicaoAtual(jogadorIndex), "Jogada", JOptionPane.INFORMATION_MESSAGE);
                     jogo.setVezDoJogador();
                     lblVezDoJogador.setText("Vez do Jogador " + (jogo.getVezDoJogador() + 1));
                     btnJogarDados.setEnabled(true);
                 }
             });
-
-            
         });
-        
     }
-    
 
     private static void atualizarTabuleiro(Tabuleiro tabuleiro, Jogo jogo) {
         for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {

@@ -25,7 +25,7 @@ public class Jogo {
         inicializarCartas();
 
         // Defina casas aleatórias para cartas extras
-        definirCasasCartasExtras(80);  // Altere o número conforme necessário
+        definirCasasCartasExtras(8);  // Altere o número conforme necessário
 
         // Inicializa a vez do jogador como o primeiro
         vezDoJogador = 0;
@@ -48,22 +48,22 @@ public class Jogo {
     private void definirCasasCartasExtras(int quantidadeCasas) {
         // Adicione casas aleatórias às casas de cartas extras
         Random random = new Random();
-        for (int i = 0; i < quantidadeCasas; i++) {
-            int casa = random.nextInt(80) + 1;  // 1 a 80
+        for (int i = 1; i < quantidadeCasas; i++) {
+            int casa = random.nextInt(50) + 1;  // 2 a quantidadeCasas
             casasCartasExtras.add(casa);
         }
     }
 
     public void realizarJogada(int jogadorIndex, int passos) {
         Jogador jogador = jogadores.get(jogadorIndex);
-        int posicaoAntiga = jogador.getPosicaoAntiga();
+     //   int posicaoAntiga = jogador.getPosicaoAntiga();
         jogador.avancar(passos);
         int posicaoNova = jogador.getPosicaoAtual();
     
         // Verifique se o jogador caiu em uma casa com carta extra
         if (casasCartasExtras.contains(posicaoNova)) {
             int carta = tirarCartaExtra();
-            JOptionPane.showMessageDialog(null, "Carta Extra: " + carta, "Carta Extra", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Carta Extra: " + carta, "Você caiu em uma casa bônus!", JOptionPane.INFORMATION_MESSAGE);
             jogador.avancar(carta);  // Mova o jogador de acordo com a carta extra
         }
     }

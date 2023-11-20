@@ -15,6 +15,7 @@ public class Tabuleiro extends JPanel {
     private List<JLabel> casasNumeradas;
     private List<JLabel> jogadoresLabels;
     private JButton btnTirarCarta;
+    private int numeroDeCasas;
 
     public Tabuleiro(Jogo jogo) {
         setLayout(new GridLayout(5, 10));
@@ -23,8 +24,9 @@ public class Tabuleiro extends JPanel {
         casasNumeradas = new ArrayList<>();
         jogadoresLabels = new ArrayList<>();
 
-        // Adiciona 80 casas numeradas ao tabuleiro
-        for (int i = 1; i <= 80; i++) {
+        
+        // Adiciona 50 casas numeradas ao tabuleiro
+        for (int i = 1; i <= getNumeroDeCasas(); i++) {
             JPanel panelCasa = new JPanel(new FlowLayout());
             JLabel labelCasa = new JLabel(Integer.toString(i), SwingConstants.CENTER);
             // labelCasa.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -51,6 +53,10 @@ public class Tabuleiro extends JPanel {
 
         // Destaca as casas com carta extra em amarelo
         destacarCasasCartasExtras(jogo.getCasasCartasExtras());
+    }
+
+    public static int getNumeroDeCasas(){
+        return 50;
     }
 
     public void moverJogador(int jogadorIndex, int posicaoAntiga, int posicaoNova) {
