@@ -12,18 +12,15 @@ import javax.swing.SwingUtilities;
 public class JogoDaTrilhaGUI {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            // Simule a tela inicial onde o jogador escolhe a quantidade de jogadores
             String escolha = JOptionPane.showInputDialog("Escolha a quantidade de jogadores (2 a 6):");
             int quantidadeJogadores = Integer.parseInt(escolha);
 
             Jogo jogo = new Jogo(quantidadeJogadores);
             Tabuleiro tabuleiro = new Tabuleiro(jogo);
 
-            // Adiciona botão de jogar dados ao painel principal
             JButton btnJogarDados = new JButton("Jogar Dados");
             JLabel lblVezDoJogador = new JLabel("Vez do Jogador " + (jogo.getVezDoJogador() + 1));
 
-            // Adiciona botão de jogar dados ao painel principal
             JPanel panelPrincipal = new JPanel(new BorderLayout());
             panelPrincipal.add(btnJogarDados, BorderLayout.NORTH);
             panelPrincipal.add(lblVezDoJogador, BorderLayout.WEST);
@@ -35,7 +32,6 @@ public class JogoDaTrilhaGUI {
             frame.setSize(800, 600);
             frame.setVisible(true);
 
-            // Adiciona listener para habilitar o botão de jogar dados
             btnJogarDados.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
