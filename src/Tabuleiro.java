@@ -1,3 +1,7 @@
+// AUTORES
+// ARIEL AUGUSTO DOS SANTOS LEITE - RA 02220134
+// FELIPE NASCIMENTO DA SILVA - RA 02110325
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;

@@ -1,3 +1,7 @@
+// AUTORES
+// ARIEL AUGUSTO DOS SANTOS LEITE - RA 02220134
+// FELIPE NASCIMENTO DA SILVA - RA 02110325
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,7 +32,7 @@ public class Jogo {
     }
 
     private void inicializarCartas() {
-        for (int i = -2; i <= 3; i++) {
+        for (int i = -4; i <= 4; i++) {
             cartasExtras.add(i);
         }
 
