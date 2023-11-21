@@ -22,7 +22,7 @@ public class Jogo {
 
         inicializarCartas();
 
-        definirCasasCartasExtras(10); 
+        definirCasasCartasExtras(10);
 
         vezDoJogador = 0;
     }
