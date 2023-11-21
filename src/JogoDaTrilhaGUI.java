@@ -51,8 +51,6 @@ public class JogoDaTrilhaGUI {
     }
 
     private static void atualizarTabuleiro(Tabuleiro tabuleiro, Jogo jogo) {
-        for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {
-            tabuleiro.moverJogador(i, jogo.getPosicaoAntiga(i), jogo.getPosicaoAtual(i));
-        }
+        tabuleiro.moverJogador(jogo.getVezDoJogador(), jogo.getPosicaoAntiga(jogo.getVezDoJogador()), jogo.getPosicaoAtual(jogo.getVezDoJogador()));
     }
 }

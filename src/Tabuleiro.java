@@ -57,13 +57,10 @@ public class Tabuleiro extends JPanel {
 
         JPanel panelCasaNova = (JPanel) getComponent(posicaoNova - 1);
         panelCasaNova.add(jogadoresLabels.get(jogadorIndex));
-    
-        revalidate();
-        repaint();
     }
     
     private void moverJogadoresParaPosicoesIniciais() {
-        int[] posicoesIniciais = {1, 1, 1, 1, 1, 1}; 
+        int[] posicoesIniciais = {1, 1, 1, 1, 1, 1};
         for (int i = 0; i < jogadoresLabels.size(); i++) {
             JPanel panelCasa = (JPanel) getComponent(posicoesIniciais[i] - 1);
             panelCasa.add(jogadoresLabels.get(i));
