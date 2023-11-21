@@ -57,6 +57,9 @@ public class Tabuleiro extends JPanel {
 
         JPanel panelCasaNova = (JPanel) getComponent(posicaoNova - 1);
         panelCasaNova.add(jogadoresLabels.get(jogadorIndex));
+    
+        revalidate();
+        repaint();
     }
     
     private void moverJogadoresParaPosicoesIniciais() {

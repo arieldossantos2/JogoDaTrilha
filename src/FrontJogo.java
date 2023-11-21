@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class JogoDaTrilhaGUI {
+public class FrontJogo {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             String escolha = JOptionPane.showInputDialog("Escolha a quantidade de jogadores (2 a 6):");
@@ -50,7 +50,7 @@ public class JogoDaTrilhaGUI {
         });
     }
 
-    private static void atualizarTabuleiro(Tabuleiro tabuleiro, Jogo jogo) {
+    public static void atualizarTabuleiro(Tabuleiro tabuleiro, Jogo jogo) {
         tabuleiro.moverJogador(jogo.getVezDoJogador(), jogo.getPosicaoAntiga(jogo.getVezDoJogador()), jogo.getPosicaoAtual(jogo.getVezDoJogador()));
     }
 }

@@ -22,7 +22,7 @@ public class Jogo {
 
         inicializarCartas();
 
-        definirCasasCartasExtras(8); 
+        definirCasasCartasExtras(10); 
 
         vezDoJogador = 0;
     }
@@ -42,7 +42,7 @@ public class Jogo {
     private void definirCasasCartasExtras(int quantidadeCasas) {
         Random random = new Random();
         for (int i = 1; i < quantidadeCasas; i++) {
-            int casa = random.nextInt(50) + 1;
+            int casa = random.nextInt(50);
             casasCartasExtras.add(casa);
         }
     }
@@ -83,10 +83,6 @@ public class Jogo {
 
     public int getQuantidadeJogadores() {
         return jogadores.size();
-    }
-
-    public int tirarCartaInicial() {
-        return cartasExtras.remove(0);
     }
 
     public int lancarDado() {
