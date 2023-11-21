@@ -15,7 +15,6 @@ public class Tabuleiro extends JPanel {
     private List<JLabel> casasNumeradas;
     private List<JLabel> jogadoresLabels;
     private JButton btnTirarCarta;
-    private int numeroDeCasas;
 
     public Tabuleiro(Jogo jogo) {
         setLayout(new GridLayout(5, 10));

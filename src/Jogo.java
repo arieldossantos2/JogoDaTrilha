@@ -7,13 +7,13 @@ import javax.swing.JOptionPane;
 
 public class Jogo {
     private List<Jogador> jogadores;
-    private List<Integer> cartasRetiradas;
+    private List<Integer> cartasExtras;
     private List<Integer> casasCartasExtras;
     private int vezDoJogador;
 
     public Jogo(int quantidadeJogadores) {
         jogadores = new ArrayList<>();
-        cartasRetiradas = new ArrayList<>();
+        cartasExtras = new ArrayList<>();
         casasCartasExtras = new ArrayList<>();
 
         for (int i = 0; i < quantidadeJogadores; i++) {
@@ -29,14 +29,14 @@ public class Jogo {
 
     private void inicializarCartas() {
         for (int i = -2; i <= 3; i++) {
-            cartasRetiradas.add(i);
+            cartasExtras.add(i);
         }
 
         embaralharCartas();
     }
 
     private void embaralharCartas() {
-        Collections.shuffle(cartasRetiradas);
+        Collections.shuffle(cartasExtras);
     }
 
     private void definirCasasCartasExtras(int quantidadeCasas) {
@@ -55,13 +55,14 @@ public class Jogo {
         if (casasCartasExtras.contains(posicaoNova)) {
             int carta = tirarCartaExtra();
             JOptionPane.showMessageDialog(null, "Carta Extra: " + carta, "Você caiu em uma casa bônus!", JOptionPane.INFORMATION_MESSAGE);
-            jogador.avancar(carta); 
+            jogador.avancar(carta);
         }
     }
     
 
     public int tirarCartaExtra() {
-        return cartasRetiradas.remove(0);
+        embaralharCartas();
+        return cartasExtras.get(0);
     }
 
     public List<Integer> getCasasCartasExtras() {
@@ -85,7 +86,7 @@ public class Jogo {
     }
 
     public int tirarCartaInicial() {
-        return cartasRetiradas.remove(0);
+        return cartasExtras.remove(0);
     }
 
     public int lancarDado() {
