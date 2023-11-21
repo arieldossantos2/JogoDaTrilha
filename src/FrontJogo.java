@@ -50,7 +50,7 @@ public class FrontJogo {
         });
     }
 
-    public static void atualizarTabuleiro(Tabuleiro tabuleiro, Jogo jogo) {
+    private static void atualizarTabuleiro(Tabuleiro tabuleiro, Jogo jogo) {
         tabuleiro.moverJogador(jogo.getVezDoJogador(), jogo.getPosicaoAntiga(jogo.getVezDoJogador()), jogo.getPosicaoAtual(jogo.getVezDoJogador()));
     }
 }

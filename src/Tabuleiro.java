@@ -4,9 +4,7 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -14,7 +12,6 @@ import javax.swing.SwingConstants;
 public class Tabuleiro extends JPanel {
     private List<JLabel> casasNumeradas;
     private List<JLabel> jogadoresLabels;
-    private JButton btnTirarCarta;
 
     public Tabuleiro(Jogo jogo) {
         setLayout(new GridLayout(5, 10));
@@ -33,12 +30,8 @@ public class Tabuleiro extends JPanel {
 
         for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {
             JLabel labelJogador = new JLabel(new ImageIcon("img/imagem" + (i + 1) + ".png"), SwingConstants.CENTER);
-            labelJogador.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             jogadoresLabels.add(labelJogador); 
         }
-
-
-        moverJogadoresParaPosicoesIniciais();
 
         for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {
             add(jogadoresLabels.get(i));
@@ -60,18 +53,6 @@ public class Tabuleiro extends JPanel {
     
         revalidate();
         repaint();
-    }
-    
-    private void moverJogadoresParaPosicoesIniciais() {
-        int[] posicoesIniciais = {1, 1, 1, 1, 1, 1};
-        for (int i = 0; i < jogadoresLabels.size(); i++) {
-            JPanel panelCasa = (JPanel) getComponent(posicoesIniciais[i] - 1);
-            panelCasa.add(jogadoresLabels.get(i));
-        }
-    }
-
-    public JButton getBtnTirarCarta() {
-        return btnTirarCarta;
     }
 
     public void destacarCasasCartasExtras(List<Integer> casasCartasExtras) {
