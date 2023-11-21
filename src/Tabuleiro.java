@@ -32,7 +32,7 @@ public class Tabuleiro extends JPanel {
         }
 
         for (int i = 0; i < jogo.getQuantidadeJogadores(); i++) {
-            JLabel labelJogador = new JLabel(new ImageIcon("lib/imagem" + (i + 1) + ".png"), SwingConstants.CENTER);
+            JLabel labelJogador = new JLabel(new ImageIcon("img/imagem" + (i + 1) + ".png"), SwingConstants.CENTER);
             labelJogador.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             jogadoresLabels.add(labelJogador); 
         }
